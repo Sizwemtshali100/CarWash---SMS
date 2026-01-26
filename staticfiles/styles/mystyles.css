@@ -1,0 +1,31 @@
+body {
+    background-color: azure;
+    margin: 0;
+}
+
+/* Keeps content starting at the same place */
+.page-wrapper {
+    padding-top: 80px;        /* height of navbar */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+/* FIXED container behavior */
+.container {
+    width: 500%;
+    max-width: 1400px;
+    height: 850px;            /* FIXED HEIGHT */
+    padding: 30px;
+    background-color: rgb(126, 107, 107);
+    overflow-y: auto;         /* scroll INSIDE */
+    box-sizing: border-box;
+}
+
+/* Active navbar link */
+.navbar .nav-link.active {
+    background-color: #212529;
+    color: #ffffff !important;
+    border-radius: 5px;
+    font-weight: 600;
+}

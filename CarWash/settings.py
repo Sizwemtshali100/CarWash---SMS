@@ -24,8 +24,8 @@ AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 AWS_REGION = os.getenv("AWS_REGION")
 
 '''
-CLICKATELL_API_KEY = config('CLICKATELL_API_KEY')
-CLICKATELL_URL = config('CLICKATELL_URL')
+CLICKATELL_API_KEY = config('CLICKATELL_API_KEY', default='')
+CLICKATELL_URL = config('CLICKATELL_URL', default='')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,9 +38,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^%vb%)bb8a4uo^+prov0g+h!oyy2^myshab2d-n^0y8oa9a3m*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['carwash-5d3f7220a0b4.herokuapp.com/']
 
 
 # Application definition
@@ -56,7 +56,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+    'django.middleware.security.SecurityMiddleware',    
+    'whitenoise.middleware.WhiteNoiseMiddleware', # Don't forget the WhiteNoise
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -142,9 +143,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+
+STATIC_ROOT = BASE_DIR / 'staticfiles' #This is really important
 
 STATICFILES_DIRS = [BASE_DIR / 'static',]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 '''AFRICASTALKING_USERNAME = "sizwemtshali100"
 AFRICASTALKING_API_KEY = "atsk_ebdf58f0cc29f04359a1ced81fa0640d8a92c22f2d5ffbf59706bd0d8a4bde2c1ae88e7b"
