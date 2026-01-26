@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Vehicle Wash</h1>
+<hr>
+<br>
+{% include 'nav.html' %}
+<br/>
+<form action="" method="POST">
+{% csrf_token %}
+
+<div class="row">
+    <div class="col">
+        <select id="id_TheVehicleMake" name="TheVehicleMake" class="form-control" required="">
+            <option value="" selected="">Select the make Vehicle</option>
+            <option value="Alfa Romeo">Alfa Romeo</option>
+            <option value="Audi">Audi</option>
+            <option value="BMW">BMW</option>
+            <option value="Chevrolet">Chevrolet</option>
+            <option value="Ford">Ford</option>
+            <option value="Honda">Honda</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Jaguar">Jaguar</option>
+            <option value="Jeep">Jeep</option>
+            <option value="Kia">Kia</option>
+            <option value="Land Rover">Land Rover</option>
+            <option value="Lexus">Lexus</option>
+            <option value="Mercedes Benz">Mercedes Benz</option>
+            <option value="Mini cooper">Mini cooper</option>
+            <option value="Mitsubishi">Mitsubishi</option>
+            <option value="Subaru">Subaru</option>
+            <option value="Suzuki">Suzuki</option>
+            <option value="Renault">Renault</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Volkswagen">ToyoVolkswagenta</option>
+            <option value="Volvo">Volvo</option>
+        </select>
+   </div>
+   <div class="col">
+        <input type="text" id="id_TheDriverName" class="form-control" name="TheDriverName" placeholder="Name of Driver"/>
+   </div>
+</div>
+<br>
+<div class="row">
+    <div class="col">
+        <select id="id_TheColor" name="TheColor" class="form-control" required="">
+            <option value="" selected="">Select the colour of Vehicle</option>
+            <option value="White">White</option>
+            <option value="Black">Black</option>
+            <option value="Green">Green</option>
+            <option value="Red">Red</option>
+            <option value="Blue">Blue</option>
+            <option value="Silver">Silver</option>
+            <option value="Grey">Grey</option>
+            <option value="Yellow">Yellow</option>
+        </select>
+    </div>
+    <div class="col">
+        <input type="text" name="TheRegistrations" placeholder="Vehicle Number plate" class="form-control">
+    </div>
+</div>
+<br>
+<input type="text" name="ThePhoneNumber" placeholder="+2700 000 0000" class="form-control">
+<br><br>
+
+<button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+
+{% endblock %}

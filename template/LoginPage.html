@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Log on the application</h1>
+<br/>
+<!--
+<a href="{% url 'RegistrationPage' %}">Register</a> 
+<br/>
+-->
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" name="username" placeholder="Username"><br><br>
+            </div>
+            <div class="col">
+                <input type="password" name="password" class="form-control" placeholder="Password" ><br><br>
+            </div>
+        </div>
+        <br>
+        <input type="submit" value="Enter" class="btn btn-primary">
+    </form>
+{% endblock %}

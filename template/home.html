@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Vehicle List</h1>
+<hr>
+<br>
+{% include 'nav.html' %}
+<br/>
+<table class="table table-hover">
+{% for vehiclelists in VehicleList %}
+    <tr> 
+        <td>
+            {{vehiclelists.TheDateEntered}} 
+        </td> 
+        <td>
+            <a href="{% url 'VehicleWashDetails' vehiclelists.id %}"> 
+            {{vehiclelists.TheVehicleMake}}
+            </a> 
+        <br>
+        </td>
+        <td>
+            {{vehiclelists.TheDriverName}} 
+        </td>
+        <td>
+            {{vehiclelists.TheRegistrations}} 
+        </td>
+        <td>
+            {{vehiclelists.ThePhoneNumber}} 
+        </td>
+    </tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

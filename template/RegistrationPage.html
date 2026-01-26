@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Registration Page</h1>
+<a href="{% url 'LoginPage' %}">LoginPage</a>
+<br/>
+<form action="" method="POST">
+
+    {% csrf_token %}
+    {{UserCreate.username}}<br>
+    {{UserCreate.password1}}<br>
+    {{UserCreate.password2}}<br>
+
+    <input type="submit" value="Enter">
+
+</form>
+{% endblock %}

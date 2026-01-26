@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Vehicle Wash details</h1>
+<br/>
+<form action="" method="POST">
+{% csrf_token %}
+{{TheVehicleDetails.TheVehicleMake}}<br>
+{{TheVehicleDetails.TheDriverName}}<br>
+{{TheVehicleDetails.TheColor}}<br>
+{{TheVehicleDetails.TheRegistrations}}<br>
+<button type="submit">Submit</button>
+
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Vehicle Wash details</h1>
+{% include 'nav.html' %}
+
+<br/>
+<center>
+<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    Vehicle Details.
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+        {{TheVehicleDetails.TheVehicleMake}}<br>
+    </li>
+    <li class="list-group-item">
+        {{TheVehicleDetails.TheDriverName}}<br>
+    </li>
+    <li class="list-group-item">
+        {{TheVehicleDetails.TheColor}}<br>
+    </li>
+    <li class="list-group-item">
+        {{TheVehicleDetails.TheRegistrations}}<br>
+    </li>
+    <li class="list-group-item">
+        {{TheVehicleDetails.ThePhoneNumber}}<br>
+    </li>
+  </ul>
+</div>
+
+</center>
+<br>
+<form action="" method="POST">
+{% csrf_token %}
+
+<button type="submit" class="btn btn-primary">Send SMS to client</button>
+
+</form>
+
+{% if myMessage %}
+{{myMessage}}
+{% endif %}
+
+{% endblock %}
