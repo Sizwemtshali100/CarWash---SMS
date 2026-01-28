@@ -13,7 +13,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from pathlib import Path
 import os
 from decouple import config
-
+import dj_database_url
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 '''from dotenv import load_dotenv
 
@@ -40,7 +41,7 @@ SECRET_KEY = 'django-insecure-^%vb%)bb8a4uo^+prov0g+h!oyy2^myshab2d-n^0y8oa9a3m*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['carwash-5d3f7220a0b4.herokuapp.com/']
+ALLOWED_HOSTS = ['herokuapp.com', 'localhost','127.0.0.1']
 
 
 # Application definition
@@ -97,7 +98,7 @@ WSGI_APPLICATION = 'CarWash.wsgi.application'
 }
 '''
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'djangodb',
@@ -107,6 +108,11 @@ DATABASES = {
         'PORT': '5432',
 
     }
+}
+'''
+
+DATABASES = {
+    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
 }
 
 # Password validation
